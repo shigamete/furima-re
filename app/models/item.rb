@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_day
   has_one_attached :image
 
-  validates :name, :explain, :price, presence: true
+  validates :name, :explain, :price, :image, presence: true
 
   validates :category_id, :status_id, :shippingfee_payer_id, :prefecture_id, :shipping_day_id, numericality: { other_than: 1 , message: "が未選択です"}
 end
