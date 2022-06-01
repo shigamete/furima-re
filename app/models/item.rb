@@ -7,7 +7,8 @@ class Item < ApplicationRecord
   belongs_to :shipping_day
   has_one_attached :image
 
-  validates :name, :explain, :price, :image, presence: true
+  validates :name, :explain, :image, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message:"は設定価格の範囲内で入力してください" }
 
   validates :category_id, :status_id, :shippingfee_payer_id, :prefecture_id, :shipping_day_id, numericality: { other_than: 1 , message: "が未選択です"}
 end
