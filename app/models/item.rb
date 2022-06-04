@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day
   has_one_attached :image
+  belongs_to :user
 
   validates :name, :explain, :image, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message:"は設定価格の範囲内で入力してください" }

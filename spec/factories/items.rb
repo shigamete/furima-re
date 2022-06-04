@@ -12,5 +12,7 @@ FactoryBot.define do
     after(:build) do |item|
       item.image.attach(io: File.open('public/images/ranger.jpeg'), filename: 'test_image.jpeg')
     end
+
+    association :user
   end
 end
